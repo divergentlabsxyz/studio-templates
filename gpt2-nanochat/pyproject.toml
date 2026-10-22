@@ -1,0 +1,14 @@
+[project]
+name = "gpt2-nanochat"
+version = "0.1.0"
+description = "A small chat model, trained from scratch on a Mac: a Divergent Studio template"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy>=2.0",
+  "pyarrow>=17",
+  "tokenizers>=0.20",
+  "torch>=2.5",
+]
+
+[tool.uv]
+package = false

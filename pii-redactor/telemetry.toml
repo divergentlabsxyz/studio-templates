@@ -1,0 +1,21 @@
+x = "step"
+
+[[stat]]
+title = "Held-out leak rate"
+y = "val_leak_rate"
+reduce = "last"
+
+[[stat]]
+title = "Over-masked"
+y = "val_overmask_rate"
+reduce = "last"
+
+[[panel]]
+title = "Loss"
+y = ["loss"]
+scale = "log"
+
+[[panel]]
+title = "Held-out messages"
+y = ["val_leak_rate", "val_overmask_rate"]
+min = 0

@@ -1,0 +1,29 @@
+x = "step"
+
+[[stat]]
+title = "Test bits per byte"
+y = "val_bpb"
+reduce = "last"
+
+[[stat]]
+title = "Tokens/s"
+y = "tokens_per_second"
+reduce = "last"
+
+[[panel]]
+title = "Training loss"
+y = ["loss_stories", "loss_chats"]
+scale = "log"
+
+[[panel]]
+title = "Test bits per byte"
+y = ["val_bpb"]
+
+[[panel]]
+title = "Learning rate"
+y = ["lr"]
+
+[[panel]]
+title = "Tokens per second"
+y = ["tokens_per_second"]
+min = 0

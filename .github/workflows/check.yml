@@ -1,0 +1,29 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  shared:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/sync.py --check
+
+  smoke:
+    # Each template sets up and trains for five seconds, on Apple silicon.
+    runs-on: macos-15
+    strategy:
+      fail-fast: false
+      matrix:
+        template: [pii-redactor, gpt2-nanochat, ticket-router]
+    defaults:
+      run:
+        working-directory: ${{ matrix.template }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: python3 machine.py
+      - run: uv run prepare.py
+      - run: uv run train.py --budget 5

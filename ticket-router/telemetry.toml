@@ -1,0 +1,21 @@
+x = "epoch"
+
+[[stat]]
+title = "Queue accuracy"
+y = "val_queue_accuracy"
+reduce = "max"
+
+[[stat]]
+title = "Fraud recall"
+y = "val_fraud_recall"
+reduce = "last"
+
+[[panel]]
+title = "Loss"
+y = ["train_loss", "val_loss"]
+scale = "log"
+
+[[panel]]
+title = "Validation accuracy"
+y = ["val_queue_accuracy", "val_intent_accuracy"]
+max = 1
